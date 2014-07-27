@@ -39,3 +39,25 @@ cacheSolve <- function(x, ...) {
 }
 
 
+#---------------------------------
+install.packages("MASS")
+
+library(MASS)
+
+a = matrix(1:25, nrow=5, ncol=5)
+a[2, 3] = 100
+a[4, 4] = 99
+a[2, 2] = 13
+a[4, 5] = -1
+a[5, 2] = 13
+
+
+ginv(a) 
+
+solve(a)
+
+#--- here is the cache solve -------------
+cacheSolve(makeCacheMatrix(a))
+
+
+
